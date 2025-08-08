@@ -1,0 +1,72 @@
+li{
+    list-style-type: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+}
+
+.use-font{
+    font-family: "Cormorant Garamond", Helvetica, Arial, sans-serif !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Flip effect styles */
+.perspective {
+  perspective: 1000px;
+}
+
+.card-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Font from Section 1 */
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Remove list bullets */
+ul.list-none {
+  list-style: none;
+}
+
+/* Scrollable details area */
+.scrollable-details {
+  max-height: 6rem; /* adjust depending on card size */
+  overflow-y: auto;
+  padding-right: 0.25rem; /* space for scrollbar */
+}
+
+/* Nice thin scrollbar */
+.scrollable-details::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollable-details::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+.scrollable-details::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#contact {
+  background-image: url('../../assets/contact.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 500px; /* or adjust to your image aspect ratio */
+  min-height: 70vh;
+}

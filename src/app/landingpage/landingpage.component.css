@@ -1,0 +1,24 @@
+body {
+  font-family: 'Playfair Display', serif;
+}
+
+
+.owner-image {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+@media (max-width: 768px) {
+  .owner-image {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+

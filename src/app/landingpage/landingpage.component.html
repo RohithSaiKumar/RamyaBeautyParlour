@@ -1,0 +1,84 @@
+<section class="relative h-[60vh] bg-cover bg-center" style="background-image: url('../../assets/photo-1512496015851-a90fb38ba796.avif')">
+  <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center px-4 md:px-0">
+    <div class="text-center text-white">
+      <h1 class="flex flex-nowrap items-center justify-center text-4xl md:text-7xl font-bold mb-4 animate__animated animate__fadeIn gap-2">
+        <img src="../../assets/R.png" alt="Ramya Logo" class="h-12 md:h-24">
+        <span class="font-sans whitespace-nowrap">Beauty Parlour</span>
+      </h1>
+      <p class="text-lg md:text-2xl font-light mb-6 animate__animated animate__fadeIn animate__delay-1s">
+        Discover Your True Beauty in Somandepalli
+      </p>
+      <a routerLink="/book"
+         class="inline-block bg-pink-500 text-white py-2 px-5 md:py-3 md:px-6 rounded-full hover:bg-pink-600 transition duration-300 animate__animated animate__fadeIn animate__delay-2s">
+        Book Appointment
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-16 bg-gray-100">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-serif text-center text-gray-800 mb-12">Our Services</h2>
+    
+    <!-- Grid for Mobile (2 columns) and Horizontal Scroll on md+ -->
+   <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-6">
+ 
+      <a [routerLink]="['/threading']" class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/thereading.jpg" alt="Threading" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Threading</h3>
+        <p class="text-gray-600 text-sm">Precision eyebrow and facial hair shaping.</p>
+      </a>
+
+      <a [routerLink]="['/bleaching']" class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/bleaching.jpeg" alt="Bleaching" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Bleaching</h3>
+        <p class="text-gray-600 text-sm">Brighten your skin with our bleaching treatments.</p>
+      </a>
+
+      <a [routerLink]="['/waxing']" class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/waxing.jpg" alt="Waxing" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Waxing</h3>
+        <p class="text-gray-600 text-sm">Smooth skin with our professional waxing services.</p>
+      </a>
+
+      <a [routerLink]="['/hair-care']"  class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/hair-care.jpg" alt="Hair Care" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Hair Care</h3>
+        <p class="text-gray-600 text-sm">Expert haircuts, styling, and treatments.</p>
+      </a>
+
+      <a [routerLink]="['/hydra-facials']"  class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/hydra-facial.jpg" alt="Hydra Facials" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Hydra Facials</h3>
+        <p class="text-gray-600 text-sm">Rejuvenating facials for radiant skin.</p>
+      </a>
+
+      <a [routerLink]="['/makeups']"  class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/makeup.jpg" alt="Makeups" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Makeups</h3>
+        <p class="text-gray-600 text-sm">Flawless makeup for every occasion.</p>
+      </a>
+
+      <a [routerLink]="['/hair-cut']"  class="bg-white p-4 rounded-lg shadow-lg text-center transition-transform transition-shadow duration-500 ease-in-out transform hover:scale-105 hover:shadow-xl snap-center">
+        <img src="../../assets/hair-cut.jpg" alt="Hair Cut" class="h-40 w-full object-cover rounded-md mb-2">
+        <h3 class="text-xl font-semibold text-gray-800 mb-1">Hair Cut</h3>
+        <p class="text-gray-600 text-sm">Stylish haircuts tailored to your preference.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="py-16 bg-pink-50">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-serif text-gray-800 mb-6">Visit Us Today</h2>
+    <p class="text-lg text-gray-600 mb-4">Ramya Beauty Parlour, Market Road, Somandepalli, Penukonda Mandal, Anantapur District</p>
+    <a href="contact" class="inline-block bg-pink-500 text-white py-3 px-6 rounded-full hover:bg-pink-600 transition duration-300">Contact Us</a>
+  </div>
+</section>
+
+
+<img src="../../assets/makeup.jpg" alt="Parlour Owner" class="owner-image">
