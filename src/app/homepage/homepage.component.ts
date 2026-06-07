@@ -1,90 +1,55 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 interface Service {
   title: string;
   image: string;
-  details?: string[];
-  flipped?: boolean;
+  details: string[];
 }
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnInit {
   isMenuOpen = false;
 
   services: Service[] = [
-    {
-      title: 'Bleaching',
-      image: '../../assets/bleaching.jpeg',
-      details: ['Fruit Bleach', 'Herbal Bleach', 'Gold Bleach', 'Sun-Tan Bleach','Tan Bleach','D-Tan'],
-      flipped: false
-    },
-    {
-      title: 'Hair-Cut / Hair Care',
-      image: '../../assets/hair-cut.jpg',
-      details :['HairDye/Color/Spa','Straightening','Hair Spa','Hot Oil Massage','StraightCut','U Cut','Feather Cut','Step','Baby Cut','Apple','Round Cut'],
-      flipped: false
-    },
-    {
-      title: 'Hydra-Facial',
-      image: '../../assets/hydra-facial.jpg',
-      details:['Gold','Silver','Pearl','Fruit','Aroma','Bridal','Anti-Tan','D-Tan','Papaya','Wine','Ayurvedic'],
-      flipped: false
-    },
-    {
-      title: 'Makeup/Massages',
-      image: '../../assets/makeup.jpg',
-      details :['Simple','Manicure','Pedicure','Body','Hands','Legs','Face'],
-      flipped: false
-    },
-    {
-      title: 'Threading',
-      image: '../../assets/thereading.jpg',
-      details: ['Eyebrows', 'Side Block', 'Chin', 'UpperLip','Forehead'],
-      flipped: false
-    },
-    {
-      title: 'Waxing',
-      image: '../../assets/waxing.jpg',
-      details:['Hands/Legs','Body','Face','Head','Neck','Arms','Back','Lip','Chin','Underarms'],
-      flipped: false
-    },
-    {
-      title: 'Saree Draping',
-      image: '../../assets/sareee.jpg',
-      details:['Gujarathi','Single Warp','Gown Saree','Burmecee','Double Saree','Traditional','Marathi','7 Up','Necklace','Border Line','Waterfall'],
-      flipped: false
-    },
-    {
-      title: 'Bridal Makeup',
-      image: '../../assets/wedding.webp',
-      details:['Normal Makeup','Celebrity Makeup','Water Proof Makeup'],
-      flipped: false
-    }
+    { title: 'Bleaching', image: '../../assets/bleaching.jpeg', details: ['Fruit Bleach', 'Herbal Bleach', 'Gold Bleach', 'D-Tan', 'Sun-Tan'] },
+    { title: 'Hair Cut & Care', image: '../../assets/hair-cut.jpg', details: ['Hair Spa', 'Straightening', 'Coloring', 'Hot Oil Massage'] },
+    { title: 'Hydra Facial', image: '../../assets/hydra-facial.jpg', details: ['Gold', 'Pearl', 'Bridal', 'Anti-Tan', 'Ayurvedic'] },
+    { title: 'Makeup & Massages', image: '../../assets/makeup.jpg', details: ['Bridal Makeup', 'Manicure', 'Pedicure', 'Body Massage'] },
+    { title: 'Threading & Waxing', image: '../../assets/waxing.jpg', details: ['Eyebrows', 'Upper Lip', 'Full Face', 'Full Body'] },
+    { title: 'Saree Draping', image: '../../assets/sareee.jpg', details: ['Traditional', 'Gujarathi', 'Waterfall', 'Bridal'] },
+    { title: 'Bridal Package', image: '../../assets/wedding.webp', details: ['Makeup', 'Hair', 'Mehendi'] }
   ];
 
-  scrollTo(id: string) {
+  ngOnInit() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach((card, index) => {
+      if ((card as HTMLElement).getBoundingClientRect().top < window.innerHeight * 0.85) {
+        (card as HTMLElement).classList.add('visible');
+      }
+    });
+  };
+
+
+toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+}
+
+scrollTo(id: string) {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      this.isMenuOpen = false;
+        element.scrollIntoView({ behavior: 'smooth' });
     }
-  }
-
-  toggleFlip(service: Service) {
-    if (service.details) {
-      service.flipped = !service.flipped;
-    }
-  }
-
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
+    this.isMenuOpen = false;   // Close menu after click
+}
 }

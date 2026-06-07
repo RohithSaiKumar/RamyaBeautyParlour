@@ -1,275 +1,243 @@
-<div class="w-screen h-screen flex flex-row bg-black text-white text-[20px]">
-    <!-- ===== Desktop Sidebar ===== -->
-    <!-- ===== Desktop Sidebar ===== -->
-    <div class="hidden md:flex flex-col items-center w-[20%] bg-black text-white">
-        <!-- Logo -->
-        <img src="../../assets/R.png" alt="Logo" class="w-20 h-20 mt-12" />
-        <p class="mt-4">Beauty Parlour</p>
+<div class="min-h-screen bg-zinc-50 overflow-x-hidden font-sans">
 
-        <!-- Menu -->
-        <ul class="mt-8 space-y-4">
-            <li><a (click)="scrollTo('start')" class="hover:text-pink-500 cursor-pointer">Start</a></li>
-            <li><a (click)="scrollTo('services')" class="hover:text-pink-500 cursor-pointer">Services</a></li>
-            <!-- <li><a (click)="scrollTo('gallery')" class="hover:text-pink-500 cursor-pointer">Gallery</a></li> -->
-            <li><a (click)="scrollTo('about')" class="hover:text-pink-500 cursor-pointer">About us</a></li>
-            <li><a (click)="scrollTo('contact')" class="hover:text-pink-500 cursor-pointer">Contact</a></li>
-        </ul>
+    <!-- Top Navbar (Mobile) -->
+    <nav class="lg:hidden fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="../../assets/R.png" alt="Ramya" class="h-10 w-10">
+                <div>
+                    <h1 class="text-2xl font-serif">RAMYA</h1>
+                    <p class="text-xs text-pink-500 -mt-1">BEAUTY PARLOUR</p>
+                </div>
+            </div>
+            <button (click)="toggleMenu()" class="text-3xl text-pink-600">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-        <!-- Social Icons -->
-        <div class="mt-auto mb-8 flex space-x-4 text-2xl">
-            <a href="https://instagram.com/yourusername" target="_blank" class="hover:text-pink-500">
+    <!-- Desktop Sidebar -->
+    <!-- Desktop Sidebar - Black + Pink -->
+    <aside
+        class="hidden lg:flex fixed left-0 top-0 h-screen w-80 bg-black text-white flex-col z-50 border-r border-pink-500/20">
+        <div class="p-10 text-center">
+            <img src="../../assets/R.png" alt="Logo" class="w-24 h-24 mx-auto">
+            <h1 class="text-4xl font-serif tracking-widest mt-4">RAMYA</h1>
+            <p class="text-pink-400 text-sm tracking-widest">BEAUTY PARLOUR</p>
+        </div>
+
+        <nav class="flex-1 px-10">
+            <ul class="space-y-8 text-lg">
+                <li><a (click)="scrollTo('start')" class="hover:text-pink-400 transition-all cursor-pointer">Home</a>
+                </li>
+                <li><a (click)="scrollTo('services')"
+                        class="hover:text-pink-400 transition-all cursor-pointer">Services</a></li>
+                <li><a (click)="scrollTo('about')" class="hover:text-pink-400 transition-all cursor-pointer">About
+                        Us</a></li>
+                <li><a (click)="scrollTo('contact')"
+                        class="hover:text-pink-400 transition-all cursor-pointer">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="p-10 mt-auto border-t border-pink-500/10">
+            <a href="https://www.instagram.com/sirisha___5515" target="_blank"
+                class="text-4xl hover:text-pink-400 transition-all">
                 <i class="fab fa-instagram"></i>
             </a>
-            <!-- <a href="https://facebook.com/yourusername" target="_blank" class="hover:text-blue-500">
-                <i class="fab fa-facebook"></i>
-            </a> -->
-            <!-- <a href="https://wa.me/yourphonenumber" target="_blank" class="hover:text-green-500">
-                <i class="fab fa-whatsapp"></i>
-            </a> -->
         </div>
-    </div>
+    </aside>
+    <div class="lg:hidden fixed inset-0 bg-black/95 z-50 transition-transform duration-300 ease-in-out"
+     [class.translate-x-0]="isMenuOpen" 
+     [class.translate-x-full]="!isMenuOpen">
 
-    <!-- ===== Mobile Top Navbar ===== -->
-    <div
-        class="md:hidden fixed top-0 left-0 w-full bg-black text-white flex items-center justify-between px-4 py-2 shadow-lg z-50">
-        <img src="../../assets/R.png" alt="Logo" class="w-12 h-12" />
-        <button (click)="toggleMenu()" class="text-3xl focus:outline-none">
-            <i class="fas fa-bars"></i>
+    <div class="flex justify-end p-6">
+        <button (click)="toggleMenu()" class="text-4xl text-pink-400">
+            <i class="fas fa-times"></i>
         </button>
     </div>
 
-    <!-- ===== Mobile Slide-in Menu ===== -->
-    <div class="md:hidden fixed top-0 right-0 h-full w-64 bg-black text-white flex flex-col items-center space-y-4 py-6 shadow-lg z-40 transform transition-transform duration-300"
-        [class.translate-x-0]="isMenuOpen" [class.translate-x-full]="!isMenuOpen">
-
-        <ul class="space-y-4 mt-16">
-            <li><a (click)="scrollTo('start')" class="hover:text-pink-500 cursor-pointer">Start</a></li>
-            <li><a (click)="scrollTo('services')" class="hover:text-pink-500 cursor-pointer">Services</a></li>
-            <!-- <li><a (click)="scrollTo('gallery')" class="hover:text-pink-500 cursor-pointer">Gallery</a></li> -->
-            <li><a (click)="scrollTo('about')" class="hover:text-pink-500 cursor-pointer">About us</a></li>
-            <li><a (click)="scrollTo('contact')" class="hover:text-pink-500 cursor-pointer">Contact</a></li>
-        </ul>
-
-        <!-- Social Icons -->
-        <div class="flex-1 space-x-4 text-2xl pt-4">
-            <a href="https://www.instagram.com/sirisha___5515?igsh=a3VqbGkxcXNoMTM1" target="_blank"
-                class="hover:text-pink-500">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <!-- <a href="https://facebook.com/yourusername" target="_blank" class="hover:text-blue-500">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://wa.me/yourphonenumber" target="_blank" class="hover:text-green-500">
-                <i class="fab fa-whatsapp"></i>
-            </a> -->
-        </div>
+    <div class="flex flex-col items-center mt-10 space-y-8 text-2xl">
+        <a (click)="scrollTo('start')" class=" text-pink-400 hover:text-pink-400 transition cursor-pointer">Home</a>
+        <a (click)="scrollTo('services')" class=" text-pink-400 hover:text-pink-400 transition cursor-pointer">Services</a>
+        <a (click)="scrollTo('about')" class=" text-pink-400 hover:text-pink-400 transition cursor-pointer">About Us</a>
+        <a (click)="scrollTo('contact')" class=" text-pink-400 hover:text-pink-400 transition cursor-pointer">Contact</a>
     </div>
 
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2">
+        <a href="https://www.instagram.com/sirisha___5515" target="_blank" 
+           class="text-5xl text-pink-400">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</div>
 
+    <!-- Main Content -->
+    <main class="lg:ml-80">
 
+        <!-- HERO -->
+        <section id="start" class="relative h-screen flex items-center justify-center">
+            <img src="../../assets/mainpage.jpg" alt="Hero" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black/70"></div>
 
-
-
-    <!-- ===== Main Section ===== -->
-    <div class="w-full md:w-[80%] bg-[aliceblue] text-black overflow-y-auto h-screen mt-[60px] md:mt-0">
-
-        <!-- Section 1 -->
-        <div id="start" class="h-screen relative bg-black text-white">
-
-            <!-- Image -->
-            <div class="w-full h-full">
-                <img src="../../assets/mainpage.jpg" alt="Logo" class="w-full h-full object-cover">
-            </div>
-
-            <!-- Text Overlay -->
-            <div class="absolute inset-0 flex flex-col justify-center md:justify-center px-6 md:px-12
-               bg-black/50 md:bg-black/40 md:backdrop-blur-sm max-w-full md:max-w-[40%]">
-
-                <!-- Decorative Line (only on desktop) -->
-                <div class="hidden md:block absolute top-20 left-12 w-24 h-1 bg-pink-500"></div>
-
-                <h1 class="font-cormorant text-3xl md:text-6xl font-bold mb-3 md:mb-6">
-                    Ramya Beauty parlour
+            <div class="relative z-10 text-center px-6 max-w-4xl">
+                <h1
+                    class="text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-none mb-6 transition-all duration-700">
+                    Beauty That<br>Empowers
                 </h1>
-
-                <p class="text-sm md:text-lg opacity-90 max-w-md">
-                    Welcome. Experience luxury, comfort, and style in every detail.
+                <p class="text-xl md:text-2xl text-white/90 max-w-xl mx-auto">
+                    Where elegance meets expertise at Ramya Beauty Parlour
                 </p>
-
-                <button
-                    class="mt-4 md:mt-6 px-4 py-2 md:px-6 md:py-3 bg-pink-500 hover:bg-pink-600 rounded-lg font-semibold">
-                    <a (click)="scrollTo('services')" class="hover:text-pink-500 cursor-pointer">Learn More</a>
+                <button (click)="scrollTo('services')"
+                    class="mt-10 px-12 py-4 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg font-medium transition-all duration-300 hover:scale-105">
+                    Discover Services
                 </button>
             </div>
+        </section>
 
-        </div>
+        <!-- SERVICES -->
+        <section id="services" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-5xl font-serif text-center mb-4">Signature Services</h2>
+                <p class="text-center text-zinc-600 mb-16">Tap / Hover to explore</p>
 
-        <div id="services" class="py-16 text-white relative">
-            <!-- Background Image -->
-            <div class="absolute inset-0">
-                <img src="../../assets/eye.jpg" alt="Background" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div *ngFor="let service of services; let i = index"
+                        class="service-card group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 opacity-0 translate-y-8"
+                        [style.transition-delay]="(i * 100) + 'ms'">
+
+                        <div class="relative h-80 overflow-hidden">
+                            <img [src]="service.image" [alt]="service.title"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
+                            </div>
+                            <h3
+                                class="absolute bottom-8 left-8 text-3xl font-medium text-white transition-all group-hover:-translate-y-1">
+                                {{ service.title }}
+                            </h3>
+                        </div>
+
+                        <div class="p-8">
+                            <ul class="space-y-3">
+                                <li *ngFor="let item of service.details" class="flex items-center gap-3 text-zinc-700">
+                                    <span class="text-pink-500 text-xl leading-none">✦</span>
+                                    {{ item }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Content -->
-            <div class="relative container mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-10 font-cormorant">
-                    Our Services
-                </h2>
+        <!-- ABOUT SECTION - Fully Responsive -->
+        <section id="about" class="py-16 md:py-24 bg-black text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-                <!-- Services Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <ng-container *ngFor="let service of services">
+                    <!-- Left Image -->
+                    <div class="relative">
+                        <img src="../../assets/bg-cert.jpg" alt="G. Sirisha" class="w-full rounded-3xl shadow-2xl">
+                        <div
+                            class="absolute bottom-4 right-4 bg-white text-black px-4 py-3 rounded-2xl shadow-xl hidden lg:block">
+                            <p class="text-5xl font-bold font-serif">10+</p>
+                            <p class="text-sm">Years Experience</p>
+                        </div>
+                    </div>
 
-                        <!-- Flip Card -->
-                        <div class="perspective" (click)="toggleFlip(service)">
-                            <div class="card-flip relative w-full h-48 cursor-pointer"
-                                [class.flipped]="service.flipped">
+                    <!-- Right Content -->
+                    <div class="space-y-6">
+                        <h2 class="text-4xl md:text-5xl font-serif">Meet Our Expert</h2>
+                        <h3 class="text-4xl md:text-5xl text-pink-400">G. Sirisha</h3>
 
-                                <!-- Front -->
+                        <p class="text-base md:text-lg leading-relaxed text-zinc-300">
+                            With over a decade of dedication, Sirisha combines traditional beauty wisdom with modern
+                            techniques to bring out the best in every client.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                            <div *ngFor="let i of [1,2,3]"
+                                class="w-20 h-20 md:w-28 md:h-28 rounded-2xl overflow-hidden border-2 border-pink-400/30">
+                                <img [src]="'../../assets/certificate-' + i + '.jpg'"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISIT US - Fully Responsive -->
+        <section id="contact" class="bg-black text-white relative py-16 md:py-24">
+            <img src="../../assets/mainpage.jpg" alt="Beauty Parlour"
+                class="absolute inset-0 w-full h-full object-cover opacity-30">
+
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/95"></div>
+
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-6xl font-serif">Visit Us</h2>
+                    <p class="text-pink-400 text-lg md:text-xl mt-3">Experience beauty in its finest form</p>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-10 md:gap-16 items-start">
+
+                    <!-- Contact Info -->
+                    <div class="md:col-span-5 space-y-6 md:space-y-8">
+                        <div class="bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-6 md:p-8">
+                            <div class="flex items-start gap-5">
                                 <div
-                                    class="card-front absolute inset-0 border border-white rounded-lg overflow-hidden shadow-lg bg-black/40">
-                                    <img [src]="service.image" [alt]="service.title" class="w-full h-32 object-cover">
-                                    <div class="p-3 text-center font-cormorant">
-                                        <h3 class="text-lg font-semibold">{{ service.title }}</h3>
-                                    </div>
+                                    class="w-12 h-12 bg-pink-500 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl">
+                                    📍</div>
+                                <div>
+                                    <h3 class="text-lg md:text-xl font-medium">Address</h3>
+                                    <p class="text-zinc-300 mt-2 text-sm md:text-base">
+                                        Ramya Herbal Beauty Parlour<br>
+                                        Somandepalle, Andhra Pradesh - 515122
+                                    </p>
                                 </div>
-
-                                <!-- Back -->
-                                <!-- Back -->
-                                <div
-                                    class="card-back absolute inset-0 border border-white rounded-lg overflow-hidden shadow-lg bg-black/80 text-white flex flex-col justify-center items-center p-4">
-                                    <h3 class="text-lg font-semibold mb-2 font-cormorant">
-                                        {{ service.title }}
-                                    </h3>
-                                    <ul
-                                        class="text-sm text-center space-y-1 font-cormorant list-none p-0 m-0 scrollable-details">
-                                        <li *ngFor="let detail of service.details">{{ detail }}</li>
-                                    </ul>
-                                </div>
-
                             </div>
                         </div>
 
-                    </ng-container>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-        <!-- Section 2 -->
-        <div id="about" class="min-h-screen bg-black text-white flex flex-col">
-            <!-- Beautician Image with text and certificates overlay -->
-            <div class="relative w-full h-[70vh] lg:h-screen">
-                <!-- Main Image -->
-                <img src="../../assets/bg-cert.jpg" alt="Beautician" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent backdrop-blur-sm"></div>
-
-                <!-- Text Content -->
-                <div class="absolute top-8 sm:top-12 lg:top-16 left-0 w-full px-4 sm:px-8 lg:px-12 z-10">
-                    <div class="w-16 h-1 bg-pink-500 mb-4 sm:mb-6"></div>
-                    <h1 class="text-2xl sm:text-3xl lg:text-5xl font-bold font-cormorant tracking-tight">
-                        Expert Beautician
-                    </h1>
-                    <p
-                        class="mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg opacity-85 max-w-xs sm:max-w-md lg:max-w-lg leading-relaxed">
-                        With over 10 years of experience, our certified beautician delivers unparalleled expertise in
-                        advanced beauty treatments, blending elegance with precision.
-                    </p>
-                    <button
-                        class="mt-4 sm:mt-6 px-4 py-2 sm:px-6 sm:py-3 bg-pink-600 hover:bg-pink-700 rounded-full font-semibold text-sm sm:text-base transition-colors duration-300">
-                        Meet Our Expert
-                    </button>
-                    <h4
-                        class="mt-4 sm:mt-6 text-lg sm:text-xl lg:text-2xl font-cormorant font-semibold tracking-wide opacity-90">
-                        G. Sirisha
-                    </h4>
-                </div>
-
-                <!-- Certificates Row -->
-                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-4 sm:gap-6 z-10">
-                    <!-- Certificate 1 -->
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 lg:w-44 lg:h-44 rounded-full overflow-hidden 
-                shadow-[0_0_15px_rgba(255,255,255,0.5)] 
-                hover:scale-105 transition-transform duration-300 border-2 border-white/80">
-                        <img src="../../assets/certificate-1.jpg" alt="Certificate 1"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Certificate 2 -->
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 lg:w-44 lg:h-44 rounded-full overflow-hidden 
-                shadow-[0_0_15px_rgba(255,255,255,0.5)] 
-                hover:scale-105 transition-transform duration-300 border-2 border-white/80">
-                        <img src="../../assets/certificate-2.jpg" alt="Certificate 2"
-                            class="w-full h-full object-cover">
-                    </div>
-
-                    <!-- Certificate 3 -->
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 lg:w-44 lg:h-44 rounded-full overflow-hidden 
-                shadow-[0_0_15px_rgba(255,255,255,0.5)] 
-                hover:scale-105 transition-transform duration-300 border-2 border-white/80">
-                        <img src="../../assets/certificate-3.jpg" alt="Certificate 3"
-                            class="w-full h-full object-cover">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-
-
-        <div id="contact" class="h-auto py-16 bg-black text-white">
-            <div class="container mx-auto px-6">
-
-                <!-- Heading -->
-                <h2 class="text-4xl font-bold text-center mb-8 font-cormorant">
-                    Contact Us
-                </h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    <!-- Contact Info -->
-                    <div class="space-y-6 text-black p-4 border border-black rounded-lg" style="box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);border-radius: 10px;text-shadow: 2px 2px 8px rgba(253, 253, 253, 0.5);backdrop-filter: blur(5px);" >
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2 " >Address</h3>
-                            <p>Ramya Herbal Beauty Parlour, Somandepalle, Andhra Pradesh, 515122</p>
+                        <div class="bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-6 md:p-8">
+                            <div class="flex items-start gap-5">
+                                <div
+                                    class="w-12 h-12 bg-pink-500 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl">
+                                    📞</div>
+                                <div>
+                                    <h3 class="text-lg md:text-xl font-medium">Phone</h3>
+                                    <a href="tel:+919441215525"
+                                        class="text-2xl md:text-3xl text-pink-400 hover:text-pink-300 transition block mt-2">
+                                        +91 9441215525
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Phone</h3>
-                            <a href="tel:+91XXXXXXX" class="hover:underline">+91 9441215515</a>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
-                            <p>Open from 10:00 AM – 8:30 PM</p>
+
+                        <div class="bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-6 md:p-8">
+                            <div class="flex items-start gap-5">
+                                <div
+                                    class="w-12 h-12 bg-pink-500 rounded-2xl flex-shrink-0 flex items-center justify-center text-2xl">
+                                    🕒</div>
+                                <div>
+                                    <h3 class="text-lg md:text-xl font-medium">Timings</h3>
+                                    <p class="text-zinc-300 mt-2">10:00 AM – 8:30 PM<br>
+                                        <span class="text-pink-400 text-sm">Open All Days</span>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Embedded Map -->
-                    <div class="rounded-lg overflow-hidden shadow-lg">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.1644021531465!2d77.60520444062779!3d14.008264251479211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb175aa4814559f%3A0xee177615b65b390d!2sRamya%20herbal%20beauty%20parlour!5e0!3m2!1sen!2sin!4v1754635404731!5m2!1sen!2sin"
-                            width="600" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <!-- Map -->
+                    <div class="md:col-span-7 rounded-3xl overflow-hidden shadow-2xl">
+                        <div class="w-full aspect-video">
+                            <iframe class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.1644021531465!2d77.60520444062779!3d14.008264251479211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb175aa4814559f%3A0xee177615b65b390d!2sRamya%20herbal%20beauty%20parlour!5e0!3m2!1sen!2sin!4v1754635404731!5m2!1sen!2sin">
+                            </iframe>
+                        </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-
-
-    </div>
-
-
+        </section>
+    </main>
 </div>
-<script>
-    document.querySelectorAll('.card-flip').forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('flipped');
-        });
-    });
-</script>

@@ -62,11 +62,35 @@ ul.list-none {
 .scrollable-details::-webkit-scrollbar-thumb:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
-#contact {
-  background-image: url('../../assets/contact.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 500px; /* or adjust to your image aspect ratio */
-  min-height: 70vh;
+.service-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+/* Improve overall look */
+section {
+  scroll-margin-top: 100px;
+}
+
+.bg-white\/5 {
+  background-color: rgba(255,255,255,0.05);
+}
+
+/* Hover effects */
+.group:hover {
+  transform: translateY(-4px);
+}
+
+/* Make sure map is responsive */
+iframe {
+  width: 100%;
+  min-height: 480px;
+}
+.service-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
 }
