@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 interface Service {
   title: string;
@@ -14,42 +14,60 @@ interface Service {
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent implements OnInit {
-  isMenuOpen = false;
+export class HomepageComponent {
+ 
+  isMobileMenuOpen = false;
+  isScrolled = false;
 
-  services: Service[] = [
-    { title: 'Bleaching', image: '../../assets/bleaching.jpeg', details: ['Fruit Bleach', 'Herbal Bleach', 'Gold Bleach', 'D-Tan', 'Sun-Tan'] },
-    { title: 'Hair Cut & Care', image: '../../assets/hair-cut.jpg', details: ['Hair Spa', 'Straightening', 'Coloring', 'Hot Oil Massage'] },
-    { title: 'Hydra Facial', image: '../../assets/hydra-facial.jpg', details: ['Gold', 'Pearl', 'Bridal', 'Anti-Tan', 'Ayurvedic'] },
-    { title: 'Makeup & Massages', image: '../../assets/makeup.jpg', details: ['Bridal Makeup', 'Manicure', 'Pedicure', 'Body Massage'] },
-    { title: 'Threading & Waxing', image: '../../assets/waxing.jpg', details: ['Eyebrows', 'Upper Lip', 'Full Face', 'Full Body'] },
-    { title: 'Saree Draping', image: '../../assets/sareee.jpg', details: ['Traditional', 'Gujarathi', 'Waterfall', 'Bridal'] },
-    { title: 'Bridal Package', image: '../../assets/wedding.webp', details: ['Makeup', 'Hair', 'Mehendi'] }
+  services = [
+    {
+      title: 'Bleaching',
+      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80',
+      items: ['Fruit Bleach', 'Herbal Bleach', 'Gold Bleach', 'D-Tan', 'Sun-Tan']
+    },
+    {
+      title: 'Hair Cut & Care',
+      image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80',
+      items: ['Hair Spa', 'Straightening', 'Coloring', 'Hot Oil Massage']
+    },
+    {
+      title: 'Hydra Facial',
+      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80',
+      items: ['Gold', 'Pearl', 'Bridal', 'Anti-Tan', 'Ayurvedic']
+    },
+    {
+      title: 'Makeup & Massages',
+      image: 'https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=600&q=80',
+      items: ['Bridal Makeup', 'Manicure', 'Pedicure', 'Body Massage']
+    },
+    {
+      title: 'Threading & Waxing',
+      image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80',
+      items: ['Eyebrows', 'Upper Lip', 'Full Face', 'Full Body']
+    },
+    {
+      title: 'Saree Draping',
+      image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=1200&q=80',
+      items: ['Traditional', 'Gujarathi', 'Waterfall', 'Bridal']
+    }
   ];
 
-  ngOnInit() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  handleScroll = () => {
-    const cards = document.querySelectorAll('.service-card');
-    cards.forEach((card, index) => {
-      if ((card as HTMLElement).getBoundingClientRect().top < window.innerHeight * 0.85) {
-        (card as HTMLElement).classList.add('visible');
-      }
-    });
+  bridalPackage = {
+    title: 'Bridal Package',
+    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80',
+    items: ['Bridal Makeup', 'Hair Styling', 'Mehendi', 'Skin Glow Treatment']
   };
 
+  toggleMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
-toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-}
+  closeMenu() {
+    this.isMobileMenuOpen = false;
+  }
 
-scrollTo(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-    this.isMenuOpen = false;   // Close menu after click
-}
+  @HostListener('window:scroll')
+  onScroll() {
+    this.isScrolled = window.scrollY > 40;
+  }
 }
