@@ -47,7 +47,7 @@ export class HomepageComponent {
     },
     {
       title: 'Saree Draping',
-      image: 'https://images.unsplash.com/photo-1583391733956-6c78276477e1?w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80',
       items: ['Traditional', 'Gujarathi', 'Waterfall', 'Bridal']
     }
   ];
